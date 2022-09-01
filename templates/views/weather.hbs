@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/fav.png" type="image/png">
+  <title>Home Page</title>
+</head>
+
+<body>
+
+  {{>navbar}}
+
+  <div class="container-fluid main_header">
+    <div class="row">
+      <div class="col-md-10 col-12 mx-auto">
+
+        <div class="main_content">
+          <form class="temp_form">
+            <input type="text" id="cityName" placeholder="Enter your city name" autocomplete="off">
+            <input type="submit" value="search" id="submitBtn">
+          </form>
+        </div>
+
+        <div class="tempInformation">
+          <div class="top_layer">
+            <p id="day">Tuesday</p>
+            <p id="today_data">13 Oct</p>
+          </div>
+          <div class="main_layer">
+            <p id="city_name">Get Output Here</p>
+            <div class="middle_layer data_hide">
+              <p id="temp"><span id="temp_real_val">0</span> <sup>o</sup>C</p>
+              <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>created with love❤</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script>
+    let getCurrentDay = () => {
+      let weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+
+      let currentTime = new Date();
+      days = weekday[currentTime.getDay()];
+      let day = document.getElementById('day');
+
+      day.innerText = days;
+    };
+
+    let today = new Date().toLocaleDateString()
+    let date = document.getElementById('today_data');
+    date.innerText = today;
+    console.log(date)
+
+    getCurrentDay();
+  </script>
+</body>
+
+</html>
