@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const hbs = require('hbs');
+const port = process.env.PORT || 8000;
 
 const req_path = path.join(__dirname, "../public")
 const partials_path = path.join(__dirname,"../templates/partials")
@@ -30,6 +31,6 @@ app.get("*",(req,res)=>{
     res.render("404errorpage");
 });
 
-app.listen(4000,()=>{
-    console.log(`Listening...${4000}`);
+app.listen(port,()=>{
+    console.log(`Listening...${port}`);
 });
